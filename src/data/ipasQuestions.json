@@ -1,0 +1,1145 @@
+[
+  {
+    "id": "Q_DP_001",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L112_Data_Processing",
+    "question": "某銀行要做授信風險模型，資料表中同時有客戶月收入、貸款金額、是否曾違約。專案一開始最優先要先做哪件事？",
+    "options": [
+      "先跑複雜模型比較準確率",
+      "先確認欄位定義、缺失值與異常值",
+      "先把所有欄位丟進同一個模型",
+      "先挑最熱門演算法"
+    ],
+    "correctAnswer": 1,
+    "explanation": "資料品質決定模型上限。先做欄位盤點、缺失值與異常值檢查，是風險最小且最符合實務流程的起點。",
+    "whyNot": "A/C/D 都跳過資料理解，容易把垃圾資料直接帶入模型，後續再修正成本更高。",
+    "difficulty": "初級",
+    "tags": [
+      "data quality",
+      "banking",
+      "risk"
+    ],
+    "type": "scenario",
+    "scenario": "銀行授信團隊準備啟動風險模型專案。"
+  },
+  {
+    "id": "Q_DP_002",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L112_Data_Processing",
+    "question": "零售公司資料集中，VIP 客戶只佔 2%，但業務最在意 VIP 流失。此時評估模型優先看哪個指標較合理？",
+    "options": [
+      "Accuracy",
+      "Precision / Recall（針對 VIP 類別）",
+      "只看訓練時間",
+      "只看模型參數數量"
+    ],
+    "correctAnswer": 1,
+    "explanation": "在類別不平衡場景，整體 Accuracy 可能誤導。應聚焦目標類別的 Precision/Recall 或 F1。",
+    "whyNot": "A 可能在少數類別上表現很差仍看起來很高；C/D 不代表業務目標成效。",
+    "difficulty": "中級",
+    "tags": [
+      "imbalanced data",
+      "metrics"
+    ],
+    "type": "scenario",
+    "scenario": "零售公司要預測少數 VIP 客戶的流失風險。"
+  },
+  {
+    "id": "Q_DP_003",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L111_Overview",
+    "question": "團隊準備將不同系統資料合併分析，但同一欄位在 A 系統是 YYYY/MM/DD，B 系統是 Unix timestamp。你會先建議？",
+    "options": [
+      "先統一時間格式與時區規則",
+      "先直接視覺化再說",
+      "先刪除其中一個系統資料",
+      "先做深度學習模型"
+    ],
+    "correctAnswer": 0,
+    "explanation": "資料整合前先標準化格式與語意，能避免後續分析偏差。",
+    "whyNot": "B/D 太早；C 會損失資訊且沒有根因解決。",
+    "difficulty": "初級",
+    "tags": [
+      "data integration",
+      "timestamp"
+    ],
+    "type": "scenario",
+    "scenario": "資料工程團隊要整合兩套來源格式不同的系統資料。"
+  },
+  {
+    "id": "Q_ML_001",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "你要預測房價（連續數值），最適合先嘗試哪一類模型？",
+    "options": [
+      "回歸模型",
+      "分類模型",
+      "聚類模型",
+      "關聯規則"
+    ],
+    "correctAnswer": 0,
+    "explanation": "房價是連續值預測問題，屬於監督式學習中的回歸任務。",
+    "whyNot": "B 用於離散標籤；C/D 不是直接做連續值監督預測。",
+    "difficulty": "初級",
+    "tags": [
+      "regression",
+      "supervised learning"
+    ],
+    "type": "basic",
+    "scenario": ""
+  },
+  {
+    "id": "Q_ML_002",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "模型在訓練集表現很好，但在驗證集顯著變差。最可能是？",
+    "options": [
+      "資料洩漏",
+      "過擬合",
+      "標準化做得太好",
+      "特徵太少一定不會發生"
+    ],
+    "correctAnswer": 1,
+    "explanation": "典型過擬合訊號是訓練好、泛化差。應考慮正則化、交叉驗證、簡化模型等。",
+    "whyNot": "A 也可能但題幹更典型指向過擬合；C/D 不成立。",
+    "difficulty": "中級",
+    "tags": [
+      "overfitting",
+      "validation"
+    ],
+    "type": "basic",
+    "scenario": ""
+  },
+  {
+    "id": "Q_ML_003",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "醫療風險分類中，漏掉高風險病患代價很高。應優先提升哪項？",
+    "options": [
+      "Recall",
+      "Precision",
+      "推論速度",
+      "模型檔案大小"
+    ],
+    "correctAnswer": 0,
+    "explanation": "當漏判代價高時，優先提高 Recall，減少 False Negative。",
+    "whyNot": "B 在某些場景重要，但本題明確強調漏判成本；C/D 非核心目標。",
+    "difficulty": "中級",
+    "tags": [
+      "classification",
+      "recall",
+      "healthcare"
+    ],
+    "type": "scenario",
+    "scenario": "醫療風險分類專案要求降低高風險病患漏判率。"
+  },
+  {
+    "id": "Q_NC_001",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L121_NoCode",
+    "question": "營運部想在兩週內上線客服自動分類 PoC，且工程資源有限。較實務的第一步是？",
+    "options": [
+      "先用 no-code 平台驗證流程與指標",
+      "直接自建全量微服務架構",
+      "先買最貴方案",
+      "先做跨國多語系擴充"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No-code/Low-code 適合快速驗證需求與流程，再決定是否工程化。",
+    "whyNot": "B/D 範圍過大；C 不是以需求與成效為導向。",
+    "difficulty": "初級",
+    "tags": [
+      "poc",
+      "no-code",
+      "delivery"
+    ],
+    "type": "scenario",
+    "scenario": "營運部希望兩週內交付客服分類 PoC，工程資源有限。"
+  },
+  {
+    "id": "Q_NC_002",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L122_NoCode",
+    "question": "你用 low-code 建了內部審批流程，主管問最大風險是什麼。最合理回答是？",
+    "options": [
+      "永遠不需要 IT 治理",
+      "供應商鎖定與可擴展性限制",
+      "low-code 一定比程式開發慢",
+      "low-code 不能串 API"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Low-code 主要風險通常在平台依賴、擴展上限與治理整合。",
+    "whyNot": "A/C/D 都過度絕對化或與現況不符。",
+    "difficulty": "中級",
+    "tags": [
+      "vendor lock-in",
+      "governance",
+      "low-code"
+    ],
+    "type": "scenario",
+    "scenario": "團隊已用 low-code 上線內部審批流程，需評估後續風險。"
+  },
+  {
+    "id": "Q_NC_003",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L121_NoCode",
+    "question": "若要決定 no-code PoC 是否進入正式專案，最應先定義哪類標準？",
+    "options": [
+      "可量化成功指標（準確率、處理時間、人工節省）",
+      "UI 顏色偏好",
+      "團隊最喜歡的工具品牌",
+      "是否用了最新框架"
+    ],
+    "correctAnswer": 0,
+    "explanation": "是否進入正式化必須回到可量化商業與營運指標。",
+    "whyNot": "B/C/D 不足以支撐投資決策。",
+    "difficulty": "初級",
+    "tags": [
+      "kpi",
+      "poc to production"
+    ],
+    "type": "scenario",
+    "scenario": "管理層要決定 no-code PoC 是否進入正式專案。"
+  },
+  {
+    "id": "Q_PLAN_001",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L123_Planning",
+    "question": "企業首次導入 AI，最穩健的推動順序是？",
+    "options": [
+      "先大規模上線所有部門，再回頭治理",
+      "先找高價值、低風險場景做小型試點",
+      "先等競爭對手做完再抄",
+      "先買硬體再決定問題"
+    ],
+    "correctAnswer": 1,
+    "explanation": "MVP/試點策略可降低失敗成本，並建立跨部門共識與可複製流程。",
+    "whyNot": "A 風險高；C 被動；D 資源投入與問題定義順序錯置。",
+    "difficulty": "初級",
+    "tags": [
+      "roadmap",
+      "pilot",
+      "strategy"
+    ],
+    "type": "scenario",
+    "scenario": "企業首次推動 AI，需制定低風險落地順序。"
+  },
+  {
+    "id": "Q_PLAN_002",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "高層要求三個月內看到 AI 成效，最合適的專案治理做法是？",
+    "options": [
+      "只追求模型最先進，不設里程碑",
+      "設定里程碑、責任分工與驗收指標",
+      "完全交給單一外包廠商決定",
+      "先做品牌宣傳再補技術"
+    ],
+    "correctAnswer": 1,
+    "explanation": "短期交付壓力下，更需要明確里程碑、角色責任與驗收口徑。",
+    "whyNot": "A/C/D 會造成管理盲區或與交付目標脫節。",
+    "difficulty": "中級",
+    "tags": [
+      "project governance",
+      "milestone"
+    ],
+    "type": "scenario",
+    "scenario": "高層要求三個月內看見 AI 可衡量成效。"
+  },
+  {
+    "id": "Q_PLAN_003",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L123_Planning",
+    "question": "若某 AI 用例高度依賴個資，規劃階段最需要先確認什麼？",
+    "options": [
+      "資料最少化與法遵要求",
+      "先決定動畫效果",
+      "先寫新聞稿",
+      "先上線再補同意機制"
+    ],
+    "correctAnswer": 0,
+    "explanation": "個資場景應優先處理資料最少化、授權範圍、保存與使用合規。",
+    "whyNot": "B/C 無關核心風險；D 屬高風險且不合規做法。",
+    "difficulty": "中級",
+    "tags": [
+      "privacy",
+      "compliance",
+      "planning"
+    ],
+    "type": "scenario",
+    "scenario": "某 AI 用例涉及大量個資，正在做前期規劃。"
+  },
+  {
+    "id": "Q_FIN_001",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "金融機構導入 AI 審核模型時，最關鍵的治理要求之一是？",
+    "options": [
+      "模型可解釋性與審計可追溯",
+      "只要準確率高就好",
+      "不需要版本控管",
+      "上線後不必再監控"
+    ],
+    "correctAnswer": 0,
+    "explanation": "金融場景屬高監管領域，需可解釋、可追溯、可稽核。",
+    "whyNot": "B/C/D 都違反金融 AI 常見治理與風控要求。",
+    "difficulty": "中級",
+    "tags": [
+      "model governance",
+      "audit",
+      "finance"
+    ],
+    "type": "scenario",
+    "scenario": "金融機構準備導入 AI 審核模型並接受監理檢視。"
+  },
+  {
+    "id": "Q_FIN_002",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "反詐騙模型上線後，詐騙手法快速改變，最必要的機制是？",
+    "options": [
+      "固定模型永不更新",
+      "持續監控漂移並定期再訓練",
+      "只在客訴時才看資料",
+      "完全移除人工覆核"
+    ],
+    "correctAnswer": 1,
+    "explanation": "金融風險情境變動快，必須做模型監控、漂移檢測與迭代更新。",
+    "whyNot": "A/C/D 會使模型迅速失效或放大風險。",
+    "difficulty": "中級",
+    "tags": [
+      "drift",
+      "monitoring",
+      "fraud"
+    ],
+    "type": "scenario",
+    "scenario": "反詐騙模型上線後，詐騙手法快速演變。"
+  },
+  {
+    "id": "Q_FIN_003",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "內控稽核要求 AI 決策可被追蹤，哪種做法最符合要求？",
+    "options": [
+      "僅保留最終分數，不留中間紀錄",
+      "記錄輸入版本、模型版本、推論結果與人工覆核歷程",
+      "讓業務口頭說明即可",
+      "每月刪除全部推論紀錄"
+    ],
+    "correctAnswer": 1,
+    "explanation": "完整決策軌跡是審計與責任歸屬的基礎。",
+    "whyNot": "A/C/D 會讓事後追溯與責任釐清失效。",
+    "difficulty": "中級",
+    "tags": [
+      "audit trail",
+      "internal control"
+    ],
+    "type": "scenario",
+    "scenario": "內控稽核要求 AI 決策可追蹤與可回溯。"
+  },
+  {
+    "id": "Q_GEN_001",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L114_GenAI",
+    "question": "客服導入生成式 AI 回覆草稿時，最穩健的上線策略是？",
+    "options": [
+      "先採 human-in-the-loop 再逐步自動化",
+      "直接全自動回覆所有高風險問題",
+      "完全不做安全測試",
+      "只看 token 成本"
+    ],
+    "correctAnswer": 0,
+    "explanation": "生成式 AI 初期應由人工把關，降低錯答與合規風險。",
+    "whyNot": "B/C 風險高；D 只看成本忽略品質與治理。",
+    "difficulty": "中級",
+    "tags": [
+      "genai",
+      "human in the loop",
+      "safety"
+    ],
+    "type": "scenario",
+    "scenario": "客服流程導入生成式 AI 草稿回覆，風險仍高。"
+  },
+  {
+    "id": "Q_GEN_002",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L114_GenAI",
+    "question": "若內部知識庫常更新，RAG 系統要維持回覆品質，關鍵做法是？",
+    "options": [
+      "只更新前端樣式",
+      "定期更新索引並驗證檢索品質",
+      "停用版本控管",
+      "只靠提示詞，不更新資料"
+    ],
+    "correctAnswer": 1,
+    "explanation": "RAG 品質高度依賴檢索層，索引更新與檢索評估是核心運維工作。",
+    "whyNot": "A/C/D 都無法解決知識新鮮度與檢索準確問題。",
+    "difficulty": "中級",
+    "tags": [
+      "rag",
+      "knowledge base",
+      "operations"
+    ],
+    "type": "scenario",
+    "scenario": "企業知識庫內容頻繁更新，RAG 回覆品質波動。"
+  },
+  {
+    "id": "Q_DP_004",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "你發現訓練資料中某地區樣本量極少，模型對該地區錯誤率明顯偏高。下一步最合理是？",
+    "options": [
+      "忽略不管，反正總體分數高",
+      "補強代表性樣本並檢查偏誤",
+      "直接移除該地區資料",
+      "只調整 UI 顏色"
+    ],
+    "correctAnswer": 1,
+    "explanation": "這是典型資料代表性與公平性問題，應優先補資料並做分群評估。",
+    "whyNot": "A/C 會擴大偏誤；D 與問題無關。",
+    "difficulty": "中級",
+    "tags": [
+      "bias",
+      "fairness",
+      "data representativeness"
+    ],
+    "type": "scenario",
+    "scenario": "模型在樣本稀少地區誤差偏高，疑似資料偏誤。"
+  },
+  {
+    "id": "Q_DP_005",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L112_Data_Processing",
+    "question": "在資料前處理中，將連續數值轉成 0 到 1 的常見目的為何？",
+    "options": [
+      "讓特徵尺度一致，避免大數值主導模型",
+      "自動補齊所有缺失值",
+      "直接提升所有模型的最終準確率",
+      "把分類問題變成回歸問題"
+    ],
+    "correctAnswer": 0,
+    "explanation": "特徵縮放可讓不同量綱的欄位處於可比較範圍，對距離或梯度敏感模型特別重要。",
+    "whyNot": "B/C/D 都不是縮放本質功能；縮放不會自動補值，也不保證一定提高準確率。",
+    "difficulty": "初級",
+    "tags": [
+      "feature scaling",
+      "preprocessing",
+      "normalization"
+    ]
+  },
+  {
+    "id": "Q_ML_004",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "在監督式學習中，Validation Set 的主要用途是什麼？",
+    "options": [
+      "調整模型與超參數，選擇較佳版本",
+      "訓練最終模型權重",
+      "取代 Test Set 做最終成績公告",
+      "永久儲存線上推論結果"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Validation Set 用於模型選型與調參，避免直接用 Test Set 反覆調整造成評估偏差。",
+    "whyNot": "B 是訓練集任務；C 會污染最終評估；D 與資料切分目的無關。",
+    "difficulty": "初級",
+    "tags": [
+      "validation set",
+      "model selection",
+      "supervised learning"
+    ]
+  },
+  {
+    "id": "Q_NC_004",
+    "type": "basic",
+    "scenario": "",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L122_NoCode",
+    "question": "下列何者最符合 low-code 的典型定位？",
+    "options": [
+      "以視覺化流程加少量程式碼加速交付",
+      "完全不能整合外部 API",
+      "只能做一次性 Demo，不能維運",
+      "一定比傳統開發成本更高"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Low-code 核心在於以平台能力加速交付，必要時可用程式碼補強。",
+    "whyNot": "B/C/D 都是過度絕對化描述，與實務不符。",
+    "difficulty": "初級",
+    "tags": [
+      "low-code",
+      "platform capability",
+      "delivery"
+    ]
+  },
+  {
+    "id": "Q_FIN_004",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "金融 AI 治理中，「審計可追溯性」最直接要求是哪一項？",
+    "options": [
+      "保留資料版本、模型版本與推論紀錄",
+      "只保留模型名稱即可",
+      "只記錄最終核准/拒絕結果",
+      "為降低成本刪除歷史紀錄"
+    ],
+    "correctAnswer": 0,
+    "explanation": "可追溯性強調完整留痕，需能回查資料、模型與決策過程。",
+    "whyNot": "B/C 訊息不足，D 直接違反治理與稽核需求。",
+    "difficulty": "中級",
+    "tags": [
+      "auditability",
+      "model governance",
+      "traceability"
+    ]
+  },
+  {
+    "id": "Q_DP_006",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L112_Data_Processing",
+    "question": "資料清理流程中，處理缺失值前最合理的動作是？",
+    "options": [
+      "先確認缺失是隨機還是系統性產生",
+      "先全部以 0 取代",
+      "先刪除所有有缺值的欄位",
+      "先做模型部署"
+    ],
+    "correctAnswer": 0,
+    "explanation": "先判斷缺失型態可避免錯誤補值策略造成偏誤。",
+    "whyNot": "B/C 可能破壞資料分布；D 時序錯誤。",
+    "difficulty": "初級",
+    "tags": [
+      "missing value",
+      "data quality",
+      "preprocessing"
+    ]
+  },
+  {
+    "id": "Q_DP_007",
+    "type": "scenario",
+    "scenario": "電商部門發現不同渠道報表口徑不一致，導致決策會議常出現爭議。",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L111_Overview",
+    "question": "要降低跨部門數據爭議，最優先建立哪項機制？",
+    "options": [
+      "統一資料字典與指標定義",
+      "先更換 BI 工具",
+      "先增加更多儀表板",
+      "先把舊資料全部刪除"
+    ],
+    "correctAnswer": 0,
+    "explanation": "一致的欄位與指標定義是跨系統分析的基礎。",
+    "whyNot": "B/C 不解決口徑根因；D 風險高且無必要。",
+    "difficulty": "中級",
+    "tags": [
+      "data governance",
+      "data dictionary",
+      "kpi alignment"
+    ]
+  },
+  {
+    "id": "Q_DP_008",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L112_Data_Processing",
+    "question": "若資料欄位分布高度偏斜，先做對數轉換最可能的目的為何？",
+    "options": [
+      "降低極端值影響並改善分布",
+      "增加資料筆數",
+      "把分類任務改成回歸",
+      "直接提高所有模型可解釋性"
+    ],
+    "correctAnswer": 0,
+    "explanation": "對數轉換常用於壓縮長尾分布，讓模型訓練更穩定。",
+    "whyNot": "B/C/D 與對數轉換核心用途不符。",
+    "difficulty": "中級",
+    "tags": [
+      "transformation",
+      "skewness",
+      "feature engineering"
+    ]
+  },
+  {
+    "id": "Q_DP_009",
+    "type": "scenario",
+    "scenario": "客服標註資料由兩個外包團隊同時產出，最近模型表現不穩定。",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "你最應先追查哪項資料風險？",
+    "options": [
+      "標註一致性與標準是否一致",
+      "GPU 型號是否最新",
+      "前端配色是否一致",
+      "模型名稱是否好記"
+    ],
+    "correctAnswer": 0,
+    "explanation": "標註品質直接影響監督式模型學習方向。",
+    "whyNot": "B/C/D 與資料標籤品質無直接關聯。",
+    "difficulty": "中級",
+    "tags": [
+      "label quality",
+      "annotation",
+      "data consistency"
+    ]
+  },
+  {
+    "id": "Q_DP_010",
+    "type": "scenario",
+    "scenario": "公司要建立董事會 AI 營運儀表板，數據每天更新。",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L111_Overview",
+    "question": "為確保高層看到的數字可被信任，最關鍵的做法是？",
+    "options": [
+      "建立資料血緣與更新稽核紀錄",
+      "每次手動貼上最新數字",
+      "只保留最近一天資料",
+      "把錯誤資料隱藏不顯示"
+    ],
+    "correctAnswer": 0,
+    "explanation": "血緣與稽核紀錄可追蹤來源、轉換與更新流程。",
+    "whyNot": "B 易出錯；C 失去趨勢；D 違反治理。",
+    "difficulty": "高級",
+    "tags": [
+      "data lineage",
+      "audit",
+      "executive dashboard"
+    ]
+  },
+  {
+    "id": "Q_DP_011",
+    "type": "scenario",
+    "scenario": "保險公司打算導入外部公開資料補強核保模型。",
+    "topic": "Data Processing / Data Literacy",
+    "sourceModule": "IPAS_L112_Data_Processing",
+    "question": "在導入外部資料前，哪項評估最不可省略？",
+    "options": [
+      "資料授權與使用限制檢查",
+      "先把所有欄位都加入模型",
+      "先把原始資料直接公開給全公司",
+      "只看資料檔案大小"
+    ],
+    "correctAnswer": 0,
+    "explanation": "外部資料常有授權與法遵邊界，先確認才能降低合規風險。",
+    "whyNot": "B/C/D 可能引入治理或安全問題，且不完整。",
+    "difficulty": "高級",
+    "tags": [
+      "data compliance",
+      "external data",
+      "risk"
+    ]
+  },
+  {
+    "id": "Q_ML_005",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "二元分類模型常用來把分數轉成 0 到 1 機率的函數是？",
+    "options": [
+      "Sigmoid",
+      "ReLU",
+      "Softplus",
+      "Tanh"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sigmoid 可將實數映射為 0 到 1，常用於二元分類輸出層。",
+    "whyNot": "B/C/D 非二元機率輸出的主要選擇。",
+    "difficulty": "初級",
+    "tags": [
+      "sigmoid",
+      "binary classification",
+      "activation"
+    ]
+  },
+  {
+    "id": "Q_ML_006",
+    "type": "scenario",
+    "scenario": "行銷團隊抱怨模型在新客族群表現明顯變差。",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "第一個要檢查的技術面指標是？",
+    "options": [
+      "訓練/線上資料分布是否產生漂移",
+      "UI 字體是否統一",
+      "辦公室網路速度",
+      "模型名稱是否符合命名規範"
+    ],
+    "correctAnswer": 0,
+    "explanation": "新客族群表現下滑常與資料分布漂移相關。",
+    "whyNot": "B/C/D 與模型泛化問題關聯低。",
+    "difficulty": "中級",
+    "tags": [
+      "data drift",
+      "generalization",
+      "monitoring"
+    ]
+  },
+  {
+    "id": "Q_ML_007",
+    "type": "scenario",
+    "scenario": "法遵要求信貸模型在不同年齡群的誤差不可差距過大。",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "較合理的評估策略是？",
+    "options": [
+      "分群檢視各族群指標與閾值影響",
+      "只看整體 Accuracy",
+      "只看訓練時間",
+      "只看模型大小"
+    ],
+    "correctAnswer": 0,
+    "explanation": "公平性需分群評估，不可只看整體平均成績。",
+    "whyNot": "B/C/D 無法反映群體差異風險。",
+    "difficulty": "高級",
+    "tags": [
+      "fairness",
+      "segment metrics",
+      "compliance"
+    ]
+  },
+  {
+    "id": "Q_ML_008",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "當模型偏差高（Bias 高）且訓練與驗證都不好時，較可能的問題是？",
+    "options": [
+      "欠擬合",
+      "過擬合",
+      "資料外洩",
+      "標註重複"
+    ],
+    "correctAnswer": 0,
+    "explanation": "高偏差通常表示模型過於簡化，屬欠擬合。",
+    "whyNot": "B 多為訓練好驗證差；C/D 不是題幹主要訊號。",
+    "difficulty": "中級",
+    "tags": [
+      "underfitting",
+      "bias",
+      "model diagnosis"
+    ]
+  },
+  {
+    "id": "Q_ML_009",
+    "type": "scenario",
+    "scenario": "醫療 AI 專案希望先控管誤報，再逐步降低漏報。",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "你會先建議怎麼做？",
+    "options": [
+      "先調整決策閾值並觀察 Precision/Recall 取捨",
+      "先增加動畫效果",
+      "先把測試集拿去訓練",
+      "先忽略臨床回饋"
+    ],
+    "correctAnswer": 0,
+    "explanation": "閾值調整能直接控制 Precision/Recall 的平衡。",
+    "whyNot": "B/C/D 會偏離模型評估與治理流程。",
+    "difficulty": "中級",
+    "tags": [
+      "threshold tuning",
+      "precision recall",
+      "healthcare"
+    ]
+  },
+  {
+    "id": "Q_ML_010",
+    "type": "scenario",
+    "scenario": "風控模型準備上線，主管要求「可回退」機制避免重大事故。",
+    "topic": "Machine Learning",
+    "sourceModule": "IPAS_L113_ML",
+    "question": "最實務的上線策略是？",
+    "options": [
+      "採用灰度發布並保留前一版模型回退點",
+      "直接全流量切換新模型",
+      "刪除舊版模型與特徵流程",
+      "跳過線上監控"
+    ],
+    "correctAnswer": 0,
+    "explanation": "灰度發布與可回退設計可降低生產風險。",
+    "whyNot": "B/C/D 都會放大上線失敗代價。",
+    "difficulty": "高級",
+    "tags": [
+      "deployment",
+      "rollback",
+      "risk control"
+    ]
+  },
+  {
+    "id": "Q_NC_005",
+    "type": "basic",
+    "scenario": "",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L121_NoCode",
+    "question": "No-code 最適合優先使用在哪種任務？",
+    "options": [
+      "流程固定且要快速驗證的業務流程",
+      "超高併發核心交易引擎重寫",
+      "即時作業系統核心開發",
+      "大型分散式資料庫底層改寫"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No-code 強項是快速驗證與短週期業務流程落地。",
+    "whyNot": "B/C/D 多屬高客製、深工程場景。",
+    "difficulty": "初級",
+    "tags": [
+      "no-code",
+      "use case",
+      "mvp"
+    ]
+  },
+  {
+    "id": "Q_NC_006",
+    "type": "scenario",
+    "scenario": "HR 想在一個月內完成履歷初篩自動化試點。",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L122_NoCode",
+    "question": "為避免試點成功卻無法擴展，應先補哪項規劃？",
+    "options": [
+      "權限治理與系統整合邊界",
+      "先做炫酷首頁設計",
+      "先把所有資料手動匯入",
+      "先忽略法遵要求"
+    ],
+    "correctAnswer": 0,
+    "explanation": "試點到正式化常卡在權限、整合與治理。",
+    "whyNot": "B/C/D 難以支撐可持續上線。",
+    "difficulty": "中級",
+    "tags": [
+      "governance",
+      "integration",
+      "scale-up"
+    ]
+  },
+  {
+    "id": "Q_NC_007",
+    "type": "scenario",
+    "scenario": "公司同時有三個部門使用不同 low-code 平台，維運成本上升。",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L122_NoCode",
+    "question": "較可行的治理方向是？",
+    "options": [
+      "建立平台選型標準與共用元件規範",
+      "讓每個部門完全自由採購",
+      "停止所有自動化專案",
+      "只比較平台廣告聲量"
+    ],
+    "correctAnswer": 0,
+    "explanation": "統一標準可降低重複建置與維運碎片化。",
+    "whyNot": "B/D 會放大治理成本；C 過度反應。",
+    "difficulty": "中級",
+    "tags": [
+      "platform governance",
+      "standardization",
+      "cost control"
+    ]
+  },
+  {
+    "id": "Q_NC_008",
+    "type": "scenario",
+    "scenario": "客服流程使用 low-code 後，主管擔心流程修改沒有留痕。",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "最應先補強哪個能力？",
+    "options": [
+      "版本控管與變更審批機制",
+      "把流程名稱改英文",
+      "只保留最後一次修改者",
+      "關閉所有權限驗證"
+    ],
+    "correctAnswer": 0,
+    "explanation": "變更留痕與審批是內控與稽核核心。",
+    "whyNot": "B/C/D 無法滿足治理需求。",
+    "difficulty": "高級",
+    "tags": [
+      "change management",
+      "audit",
+      "low-code governance"
+    ]
+  },
+  {
+    "id": "Q_NC_009",
+    "type": "scenario",
+    "scenario": "營運團隊想把 no-code 試點擴成跨區域正式服務。",
+    "topic": "No-code / Low-code",
+    "sourceModule": "IPAS_L121_NoCode",
+    "question": "升級前最應先確認哪項？",
+    "options": [
+      "SLA、備援與監控是否可達正式營運要求",
+      "Logo 是否重新設計",
+      "先把歷史錯誤紀錄刪除",
+      "只看授權費最便宜方案"
+    ],
+    "correctAnswer": 0,
+    "explanation": "正式服務需有明確可靠性與營運能力。",
+    "whyNot": "B/C/D 無法保證跨區穩定運行。",
+    "difficulty": "高級",
+    "tags": [
+      "production readiness",
+      "sla",
+      "operations"
+    ]
+  },
+  {
+    "id": "Q_PLAN_004",
+    "type": "basic",
+    "scenario": "",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L123_Planning",
+    "question": "AI 專案立案時，以下哪項最能代表「可驗收目標」？",
+    "options": [
+      "明確 KPI 與驗收門檻",
+      "主管覺得很創新",
+      "簡報頁數很多",
+      "模型名稱很前沿"
+    ],
+    "correctAnswer": 0,
+    "explanation": "可驗收目標必須可量化並可被客觀驗證。",
+    "whyNot": "B/C/D 主觀或與成效無直接關聯。",
+    "difficulty": "初級",
+    "tags": [
+      "kpi",
+      "acceptance criteria",
+      "planning"
+    ]
+  },
+  {
+    "id": "Q_PLAN_005",
+    "type": "scenario",
+    "scenario": "董事會要求一年內擴展 10 個 AI 用例，但預算有限。",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L123_Planning",
+    "question": "最務實的資源配置策略是？",
+    "options": [
+      "先用價值/風險矩陣排序，再分批推進",
+      "所有用例同時啟動",
+      "先做成本最高用例",
+      "先停掉治理流程加速上線"
+    ],
+    "correctAnswer": 0,
+    "explanation": "分批推進可平衡價值、風險與資源。",
+    "whyNot": "B/C/D 易造成資源失衡或治理缺口。",
+    "difficulty": "中級",
+    "tags": [
+      "portfolio management",
+      "prioritization",
+      "strategy"
+    ]
+  },
+  {
+    "id": "Q_PLAN_006",
+    "type": "scenario",
+    "scenario": "跨部門 AI 專案進度延遲，因為資料、法遵、IT 權責不清。",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "優先要補哪一項治理機制？",
+    "options": [
+      "RACI 責任矩陣與決策節點",
+      "增加會議次數但不定議程",
+      "只由單一部門拍板所有決策",
+      "先忽略法遵直到上線前"
+    ],
+    "correctAnswer": 0,
+    "explanation": "RACI 可明確角色責任，降低協作阻塞。",
+    "whyNot": "B/C/D 常導致協作風險與治理失衡。",
+    "difficulty": "中級",
+    "tags": [
+      "raci",
+      "governance",
+      "cross-functional"
+    ]
+  },
+  {
+    "id": "Q_PLAN_007",
+    "type": "scenario",
+    "scenario": "企業要採購外部 AI 服務，擔心後續被綁定。",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L123_Planning",
+    "question": "採購階段最應納入哪項條款？",
+    "options": [
+      "資料可攜與退出機制條款",
+      "只談首年折扣",
+      "只談品牌曝光合作",
+      "不需要服務水準協議"
+    ],
+    "correctAnswer": 0,
+    "explanation": "退出與可攜性條款可降低供應商鎖定風險。",
+    "whyNot": "B/C/D 無法保障長期可持續性。",
+    "difficulty": "高級",
+    "tags": [
+      "vendor lock-in",
+      "procurement",
+      "contract"
+    ]
+  },
+  {
+    "id": "Q_PLAN_008",
+    "type": "scenario",
+    "scenario": "公司導入生成式 AI 後，出現少量不當內容回覆。",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L114_GenAI",
+    "question": "短期內最應先啟動哪個控管？",
+    "options": [
+      "高風險場景改為人工覆核與紅線規則",
+      "全面關閉所有記錄",
+      "只要求使用者自行承擔風險",
+      "先不處理等下季再看"
+    ],
+    "correctAnswer": 0,
+    "explanation": "高風險場景需先加強人機協作與安全護欄。",
+    "whyNot": "B/C/D 會放大品牌與法遵風險。",
+    "difficulty": "高級",
+    "tags": [
+      "genai safety",
+      "human review",
+      "risk control"
+    ]
+  },
+  {
+    "id": "Q_PLAN_009",
+    "type": "scenario",
+    "scenario": "企業想建立 AI 中台，讓各事業單位可重複利用能力。",
+    "topic": "AI Planning / Strategy",
+    "sourceModule": "IPAS_L123_Planning",
+    "question": "中台治理最需要先定義什麼？",
+    "options": [
+      "共用服務目錄、SLA 與責任邊界",
+      "先上線再補文件",
+      "每個單位各自定義資料規格",
+      "先以臨時人力維運"
+    ],
+    "correctAnswer": 0,
+    "explanation": "中台可擴展關鍵在標準化服務與清楚責任邊界。",
+    "whyNot": "B/C/D 會導致重工與品質不穩。",
+    "difficulty": "中級",
+    "tags": [
+      "ai platform",
+      "sla",
+      "operating model"
+    ]
+  },
+  {
+    "id": "Q_FIN_005",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "金融 AI 中常見的「三道防線」概念，主要目的是？",
+    "options": [
+      "明確業務、風控、稽核的監督責任",
+      "只讓 IT 部門決定全部風險",
+      "降低所有文件需求",
+      "完全取消人工覆核"
+    ],
+    "correctAnswer": 0,
+    "explanation": "三道防線強調責任分工與相互監督。",
+    "whyNot": "B/C/D 與金融內控原則相反。",
+    "difficulty": "中級",
+    "tags": [
+      "three lines of defense",
+      "internal control",
+      "finance"
+    ]
+  },
+  {
+    "id": "Q_FIN_006",
+    "type": "scenario",
+    "scenario": "授信模型上線後，客訴指出同條件客戶結果不一致。",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "第一步最需要調閱哪種資料？",
+    "options": [
+      "模型版本、輸入特徵與決策日誌",
+      "客服通話錄音長度",
+      "辦公室門禁紀錄",
+      "廣告投放報表"
+    ],
+    "correctAnswer": 0,
+    "explanation": "要釐清一致性問題需回溯模型與輸入上下文。",
+    "whyNot": "B/C/D 無法直接解釋模型決策差異。",
+    "difficulty": "中級",
+    "tags": [
+      "audit log",
+      "model traceability",
+      "complaint handling"
+    ]
+  },
+  {
+    "id": "Q_FIN_007",
+    "type": "scenario",
+    "scenario": "監理機關要求每季提交 AI 模型風險報告。",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_Exam_Predictions_115",
+    "question": "哪種報告內容組合最完整？",
+    "options": [
+      "效能趨勢、漂移監控、重大事件與改善計畫",
+      "只附準確率單一指標",
+      "只附開發團隊名單",
+      "只附系統上線日期"
+    ],
+    "correctAnswer": 0,
+    "explanation": "監理報告需同時涵蓋效能、風險、事件與改善閉環。",
+    "whyNot": "B/C/D 資訊不足，無法支持監理審查。",
+    "difficulty": "高級",
+    "tags": [
+      "regulatory reporting",
+      "model risk",
+      "governance"
+    ]
+  },
+  {
+    "id": "Q_FIN_008",
+    "type": "basic",
+    "scenario": "",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "若模型可解釋性不足，金融機構最直接的風險是？",
+    "options": [
+      "無法有效回應審計與監理查核",
+      "網頁載入速度變慢",
+      "資料庫容量下降",
+      "員工座位不足"
+    ],
+    "correctAnswer": 0,
+    "explanation": "可解釋性不足會影響合規與責任追溯。",
+    "whyNot": "B/C/D 與模型治理核心風險無關。",
+    "difficulty": "中級",
+    "tags": [
+      "explainability",
+      "compliance",
+      "audit"
+    ]
+  },
+  {
+    "id": "Q_FIN_009",
+    "type": "scenario",
+    "scenario": "反洗錢模型誤報過高，造成人工審查負擔暴增。",
+    "topic": "Financial AI / Governance",
+    "sourceModule": "IPAS_L132_FinancialAI",
+    "question": "短期優化最合理的策略是？",
+    "options": [
+      "分層風險閾值與規則協同調整",
+      "直接關閉模型",
+      "僅增加人工人數不調整模型",
+      "刪除所有歷史案例"
+    ],
+    "correctAnswer": 0,
+    "explanation": "分層閾值與規則協同可在風險控管與人力負擔間取得平衡。",
+    "whyNot": "B/C/D 不具可持續性或會放大風險。",
+    "difficulty": "高級",
+    "tags": [
+      "aml",
+      "threshold policy",
+      "operational efficiency"
+    ]
+  }
+]
