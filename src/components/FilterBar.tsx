@@ -39,18 +39,26 @@ export default function FilterBar({
   return (
     <div className="space-y-2">
       {/* 主分類 */}
-      <div className="flex gap-2 overflow-x-auto pb-1">
-        <Chip label="全部分類" selected={!selectedCategory} onClick={() => onCategoryChange('')} />
+      <div className="flex gap-2 overflow-x-auto pb-1 pr-1 hide-scrollbar">
+        <div className="shrink-0">
+          <Chip label="全部分類" selected={!selectedCategory} onClick={() => onCategoryChange('')} />
+        </div>
         {categories.map(cat => (
-          <Chip key={cat} label={cat} selected={selectedCategory === cat} onClick={() => onCategoryChange(cat)} />
+          <div key={cat} className="shrink-0">
+            <Chip label={cat} selected={selectedCategory === cat} onClick={() => onCategoryChange(cat)} />
+          </div>
         ))}
       </div>
 
       {/* 難度 */}
-      <div className="flex flex-wrap gap-2 pb-1">
-        <Chip label="全部難度" selected={!selectedDifficulty} onClick={() => onDifficultyChange('')} />
+      <div className="flex gap-2 overflow-x-auto pb-1 pr-1 hide-scrollbar md:flex-wrap md:overflow-visible">
+        <div className="shrink-0 md:shrink">
+          <Chip label="全部難度" selected={!selectedDifficulty} onClick={() => onDifficultyChange('')} />
+        </div>
         {difficulties.map(d => (
-          <Chip key={d} label={d} selected={selectedDifficulty === d} onClick={() => onDifficultyChange(d)} />
+          <div key={d} className="shrink-0 md:shrink">
+            <Chip label={d} selected={selectedDifficulty === d} onClick={() => onDifficultyChange(d)} />
+          </div>
         ))}
       </div>
 

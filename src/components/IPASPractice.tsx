@@ -178,7 +178,7 @@ export default function IPASPractice() {
           <p className="text-xs text-gray-400">
             題目 {index + 1} / {roundQuestions.length}
           </p>
-          <div className="flex gap-2 text-xs">
+          <div className="flex flex-wrap gap-2 text-xs">
             <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-700">{currentQuestion.topic}</span>
             <span className="px-2 py-0.5 rounded bg-gray-100 text-gray-600">{currentQuestion.difficulty}</span>
             <span className="px-2 py-0.5 rounded bg-teal-100 text-teal-700">

@@ -13,3 +13,12 @@ body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
